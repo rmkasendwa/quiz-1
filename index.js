@@ -1,0 +1,10 @@
+const fs = require('fs');
+const express = require('express');
+const logger = require("morgan");
+const app = express();
+const port = 3000;
+app.use(express.json());
+app.use(logger("dev"));
+app.use(express.static('public'));
+app.use((request, response, next) => response.send(fs.readFileSync("public/index.html", "UTF-8")));
+app.listen(port, () => console.log(`App server has been started on port ${port}`));

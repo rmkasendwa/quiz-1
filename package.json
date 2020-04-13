@@ -4,7 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "hindreen": "echo \"Hi Hindreen\"",
+    "start": "nodemon app.js",
+    "db:create": "createdb --echo knexpress",
+    "db:drop": "dropdb --if-exists --echo knex_demo",
+    "db:migrate": "knex migrate:latest",
+    "db:rollback": "knex migrate:rollback",
+    "db:reset": "npm run db:drop && npm run db:create && npm run db:migrate"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   },
   "keywords": [],
   "author": "",
